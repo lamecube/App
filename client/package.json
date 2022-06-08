@@ -1,0 +1,53 @@
+{
+  "name": "protyper",
+  "version": "0.1.0",
+  "private": true,
+  "homepage": "./",
+  "dependencies": {
+    "@babel/core": "7.12.17",
+    "@emotion/react": "11.4.1",
+    "@emotion/styled": "11.3.0",
+    "@mui/icons-material": "5.0.3",
+    "@mui/material": "5.0.3",
+    "axios": "0.21.4",
+    "cryptr": "6.0.2",
+    "node-sass": "6.0.1",
+    "react": "17.0.2",
+    "react-cookies": "0.1.1",
+    "react-dom": "17.0.2",
+    "react-loader-spinner": "4.0.0",
+    "react-redux": "7.1.1",
+    "react-router-dom": "5.0.1",
+    "react-scripts": "4.0.3",
+    "redux": "4.0.4",
+    "redux-thunk": "2.3.0"
+  },
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "set INLINE_RUNTIME_CHUNK=false&&react-scripts build",
+    "postbuild": "rm -rf ../www && mv ./build ../www && cordova build android",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject",
+    "newapi": "cd .. && sh ./superpower/newApi.sh"
+  },
+  "eslintConfig": {
+    "extends": "react-app"
+  },
+  "browserslist": {
+    "production": [
+      "0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  },
+  "devDependencies": {
+    "eslint": "7.20.0",
+    "eslint-config-google": "0.14.0",
+    "eslint-plugin-react": "7.22.0"
+  }
+}

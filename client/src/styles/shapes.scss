@@ -1,0 +1,51 @@
+.rt {
+    width: 10em;
+    height: 6em;
+    position: relative;
+}
+
+.rt::before,
+.rt::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    right: 0;
+    border-color: transparent;
+    border-style: solid;
+}
+
+.rt::before {
+    border-width: 1.5em;
+}
+
+.rt::after {
+    border-width: 6em;
+    border-right-color: rgba(31, 31, 25, 0.96);
+    border-top-color: rgba(31, 31, 25, 0.96);
+}
+.lt {
+    width: 10em;
+    height: 6em;
+    position: relative;
+}
+
+.lt::before,
+.lt::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    border-color: transparent;
+    border-style: solid;
+}
+
+.lt::before {
+    border-width: 1.5em;
+}
+
+.lt::after {
+    border-width: 6em;
+    border-right-color: rgba(31, 31, 25, 0.96);
+    border-top-color: rgba(31, 31, 25, 0.96);
+    transform: rotate(-90deg);
+}

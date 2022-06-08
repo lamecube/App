@@ -1,0 +1,45 @@
+# Headers 
+
+# Strict-Transport-Security
+<IfModule mod_headers.c>
+	Header always set Strict-Transport-Security "max-age=63072000; includeSubDomains"
+</IfModule>
+
+# Referrer-Policy
+<IfModule mod_headers.c>
+	Header set Referrer-Policy "same-origin"
+</IfModule>
+# X-XSS-Protection
+<IfModule mod_headers.c>
+	Header set X-XSS-Protection "1; mode=block"
+</IfModule>
+
+# X-Frame-Options
+
+
+# Policys
+<IfModule mod_headers.c>
+#	 Header set Content-Security-Policy "default-src 'self'; script-src 'self';"
+</IfModule>
+
+# Dont Send Server Data in Response
+ServerSignature Off
+
+# Disallow Indexed Directorys
+Options -Indexes
+
+#Force SSL
+RewriteEngine On
+RewriteCond %{SERVER_PORT} 80
+RewriteRule ^(.*)$ https://www.romanjordan.com/$1 [R,L]
+
+#Only allow GET REQUESTS
+<LimitExcept GET POST HEAD >
+	Order Allow,Deny
+	Deny from all
+</LimitExcept>
+
+# Direct Bad Requests
+ErrorDocument 404 /404.html
+ErrorDocument 403 /404.html
+ErrorDocument 500 /500.html

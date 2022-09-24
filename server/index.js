@@ -25,7 +25,7 @@ server.use(express.json());
 server.use("/css", express.static(__dirname + "/views/css")); //CSS
 
 //Through Some Style Into The Mix
-const lg = //console.log;
+const lg = console.log;
 const blu = chalk.blue;
 const grn = chalk.green;
 

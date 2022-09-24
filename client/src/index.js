@@ -1,5 +1,5 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
+import { createRoot } from 'react-dom/client';
 import './styles/index.scss';
 import App from './app/App';
 import {Provider} from 'react-redux';
@@ -8,17 +8,19 @@ import rootReducer from './store';
 import thunk from 'redux-thunk';
 import {BrowserRouter as Router} from 'react-router-dom';
 
+const root = document.getElementById('root');
 const store = createStore(rootReducer, applyMiddleware(thunk));
 
 const renderReactDom = () =>{
-  ReactDOM.render(
-      <React.StrictMode>
+  let app = createRoot(root)
+  app.render(
+    <React.StrictMode>
         <Provider store={store}>
           <Router basename="/">
             <App />
           </Router>
         </Provider>
-      </React.StrictMode>, document.getElementById('root'),
+      </React.StrictMode>
   );
 };
 

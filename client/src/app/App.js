@@ -1,5 +1,5 @@
 import React from 'react';
-import {Route} from 'react-router-dom';
+import {Route, Routes} from 'react-router-dom';
 import PrivateRoute from '../util/PrivateRoute';
 import PublicMainView from './public';
 import PrivateMainView from './private';
@@ -21,9 +21,14 @@ const App = (props) => {
     <div className="App">
       <NavDrawer />
       {loggedIn ? (
-        <PrivateRoute path="/" component={PrivateMainView} />
+        <Routes>
+          <PrivateRoute path="/" element={<PrivateMainView />} />
+        </Routes>
       ) : (
-        <Route match path="/" render={() => <PublicMainView {...props} />} />
+        // <div>yo</div>
+        <Routes>
+          <Route match path="/" element={<PublicMainView {...props} />} />
+        </Routes>
       )}
       <Dialog />
     </div>
